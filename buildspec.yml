@@ -6,6 +6,9 @@ env:
 phases:
   pre_build:
     commands:
+      - DOCKER_PASSWORD=Nathasha19!
+      - DOCKER_USERNAME=darshanarn26
+      - echo "Granting execute permissions to gradlew..."
       - chmod +x ./gradlew
       - ./gradlew clean build
       - echo Logging in to Amazon ECR...
