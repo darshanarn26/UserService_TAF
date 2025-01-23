@@ -1,7 +1,7 @@
 version: 0.2
 env:
   variables:
-    REPOSITORY_URI: 381491924694.dkr.ecr.us-east-1.amazonaws.com/tafuser
+    REPOSITORY_URI: 381491924694.dkr.ecr.us-east-1.amazonaws.com/userservicemsrepo
 
 phases:
   pre_build:
@@ -31,7 +31,7 @@ phases:
       - docker push $REPOSITORY_URI:latest
       - docker push $REPOSITORY_URI:$IMAGE_TAG
       - echo Writing image definitions file...
-      - DOCKER_CONTAINER_NAME=tafuser
+      - DOCKER_CONTAINER_NAME=userservicemsrepo
       - printf '[{"name":"%s","imageUri":"%s"}]' "$DOCKER_CONTAINER_NAME" "$REPOSITORY_URI:$IMAGE_TAG" > imagedefinitions.json
       - echo Printing imagedefinitions.json
       - cat imagedefinitions.json
